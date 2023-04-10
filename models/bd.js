@@ -2,12 +2,8 @@ var mysql = require('mysql');
 var util = require('util');
 
 var pool = mysql.createPool({
-    connectionLimit: 10,
-    connectionLimit : 1000,
-    connectTimeout  : 60 * 60 * 1000,
-    acquireTimeoutMillis : 90000,
-    timeout         : 60 * 60 * 1000,
-    host:         process.env.MYSQL_HOST,
+    url:         process.env.MYSQL_URL,
+    host:        process.env.MYSQL_HOST,
     user:        process.env.MYSQL_USER,
     password:    process.env.MYSQL_PASSWORD,
     database:    process.env.MYSQL_DB_NAME
