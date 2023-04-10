@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/redinformatica.css' />
+
+</head>
+
+<body>
+  <header>
+    {{#if usuario}}
+    <div class="m-4">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark2 text-white">
+        <div class="container-fluid">
+          <a href="#" class="navbar-brand">Admin - Red Informatica</a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+              <ul class="nav navbar-nav mr-auto align-items-center">
+                <li class="nav-item active mx-2 text-center">
+                  <i class="fa fa-home"></i>
+                  <a class="nav-link" href="/admin/productos">Productos <span class="sr-only">Productos</span></a>
+                </li>
+                <li class="nav-item mx-2 text-center">
+                  <i class="fa-solid fa-computer"></i>
+                  <a class="nav-link" href="/admin/servicios">Servicios</a>
+                </li>
+                <li class="nav-item mx-2 text-center">
+                  <i class="fa-brands fa-neos"></i>
+                  <a class="nav-link" href="/admin/novedades">Novedades</a>
+                </li>
+                <li class="nav-item mx-2 text-center iconoNav">
+                  <i class="fa-solid fa-user"></i> <a class="nav-link" href="/admin/clientes">Clientes</a>
+                </li>
+                <li class="nav-item mx-2 text-center">
+                  <i class="fa-solid fa-dollar-sign"></i> <a class="nav-link" href="/admin/ventas">Ventas</a>
+                </li>
+                <li class="nav-item dropdown text-center">
+                  <i class="fa-solid fa-hand-holding-dollar"></i>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Ofertas
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/admin/ofertas">Ofertas </a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">PROMOS</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown text-center mx-2">
+                  <i class="fa-solid fa-print"></i>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Centro de copiado
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Noticias</a></li>
+                    <li><a class="dropdown-item" href="#">Servicios de impresion</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">OFERTAS</a></li>
+                    <li><a class="dropdown-item" href="#">Precios</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown text-center mx-2">
+                  <i class="fa-solid fa-house-chimney-user"></i>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Usuarios
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/admin/usuarios">Usuarios</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/admin/notificaciones/nuevaNotificacion">Notificaciones</a></li>
+                  </ul>
+                </li>
+                {{!-- <li class="nav-item mx-2 text-center">
+                  <i class="fa-solid fa-house-chimney-user"></i>
+                  <a class="nav-link" href="/admin/usuarios">Usuarios</a>
+                </li> --}}
+                <li class="nav-item dropdown bg-ligrh mx-5">
+                  <a class="nav-link dropdown-toggle menuNotificacion" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false" {{#if notificacion}} {{else}}disabled {{/if}}>
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      {{!-- {{notificacion.length}}+ --}}
+                      {{this.cantidad_notificaciones}}+
+                      <span class="visually-hidden"></span>
+                      {{!-- {{#if notificacion}}
+                      <i class="fa-solid fa-bell"></i>
+                      <strong class="text-white">{{usuario}} </strong>Tienes Notificaciones
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{notificacion.length}}+
+                        <span class="visually-hidden">unread messages</span>
+                  </a>
+                  {{else}}
+                  Notificaciones
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    0+ </span>
+                  <span class="visually-hidden">unread messages</span>
+                  {{/if}} --}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      {{#each notificacion}}
+                      {{!-- <p class="notificacion" id="{{this.estado}}"><i class="fa-solid fa-check"></i>
+                        {{this.notificacion}}</p> --}}
+                         <p style="visibility:hidden ;">xxxxxxxxxxxxxxxxxxxxxx</p>
+                      <div class="alert alert-secondary text-center shadow-sm rounded" role="alert">
+                        <p class="notificacion" id="{{this.estado}}"<i class="fa-solid fa-check"></i> {{this.notificacion}}</p>
+                      </div>
+                     
+                      <a class="text-end linknotificacion" href="/admin/notificaciones/ver/{{this.id_notificacion}}">Ver
+                        notificacion completa</a>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    {{/each}}
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbar-nav ms-auto">
+            <span class="navbar-text text-white me-2">
+              <span class="position-relative text-white badge rounded-pill bg-dark2">
+                <img src="http://via.placeholder.com/35" class="rounded-pill" alt=""> </span>
+              <strong>{{usuario}} </strong> <a class="btn btn-danger ms-2" href="/admin/login/logout">Salir
+                <i class="fas fa-sign-out-alt"></i> </a>
+            </span>
+          </div>
+        </div>
+    </div>
+    </nav>
+    </div>
+    {{/if}}
+  </header>
+  {{{body}}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <footer>
+    <p class="text-center p-2">Todos los derechos reservados @año</p>
+  </footer>
+
+</html>

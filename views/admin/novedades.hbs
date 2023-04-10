@@ -1,0 +1,43 @@
+<div class="container">
+    <p class="text-center"><h3>Novedades</h3></p>
+    <div class="row">
+        {{!-- <p class="text-end"> Hola {{usuario}} <a class="btn btn-danger" href="/admin/login/logout">Cerrar Sesion
+                <i class="fas fa-sign-out-alt"></i> </a></p> --}}
+    </div>
+    <div class="text-end">
+        {{!-- <a href="/admin/productos/insertProducto" type="button" class="btn btn-primary align-self-center">+
+            Agregar Nuevo Producto</a> --}}
+        <a href="/admin/novedades/agregar" type="button" class="btn btn-primary align-self-center"><i class="fa-solid fa-plus"></i> Novedad
+            </a>
+    </div>
+    <table class="table table-hover table-bordered shadow">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Subtitulo</th>
+                <th scope="col">Cuerpo</th>
+                <th scope="col">Imagen</th> 
+                <th scope="col">Acciones (Editar/Borrar)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each novedades}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{titulo}}</td>
+                <td>{{subtitulo}}</td>
+                <td>{{cuerpo}}</td>
+                {{!-- Se ponen tres llaves para "codificar la etiqueta img" --}}
+                <td>{{{imagen}}}</td> 
+                <td>
+                    <p class="text-end"><a class="btn btn-primary mx-2" href="/admin/novedades/modificar/{{id}}">
+                            <i class="fa-solid fa-pencil"></i></a><a class="btn btn-danger"
+                            href="/admin/novedades/eliminar/{{id}}">
+                            <i class="fa-solid fa-trash-can"></i></a></p>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>

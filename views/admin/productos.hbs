@@ -1,0 +1,74 @@
+<div class="container">
+    <p class="text-center">
+    <h3>Productos</h3>
+    </p>
+    <div class="row">
+        {{!-- <p class="text-end"> Hola {{usuario}} <a class="btn btn-danger" href="/admin/login/logout">Cerrar Sesion
+                <i class="fas fa-sign-out-alt"></i> </a></p> --}}
+    </div>
+    <div class="my-3 text-center">
+        <form action="/admin/productos/buscar" method="post">
+            <div class="mb-3 row">
+                <div class="d-flex col-sm-10">
+                    <input type="text" class="form-control mx-1" placeholder="Buscar..." name="buscar">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="text-end rounded">
+        {{!-- <a href="/admin/productos/insertProducto" type="button" class="btn btn-primary align-self-center">+
+            Agregar Nuevo Producto</a> --}}
+        <a href="/admin/productos/nuevoProducto" type="button" class="btn btn-primary align-self-center"><i
+                class="fa-solid fa-plus"></i>
+            Producto</a>
+    </div>
+    <table class="table striped bordered table-hover shadow rounded">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Observaciones</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acciones (editar/borrar)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.id_producto}}</td>
+                <th scope="row">{{nombre}}</th>
+                <td>{{precio}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{marca}}</td>
+                <td>{{observaciones}}</td>
+                <td>{{{img}}}</td>
+                <td>
+                    <p class="text-end"><a class="btn btn-primary mx-2"
+                            href="/admin/productos/modificar/{{this.id_producto}}">
+                            <i class="fa-solid fa-pencil"></i></a><a class="btn btn-danger"
+                            href="/admin/productos/eliminar/{{this.id_producto}}">
+                            <i class="fa-solid fa-trash-can"></i></a></p>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+    
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>  
+            {{#each paginas}}         
+            <li class="page-item"><a class="page-link" href="/admin/productos/pagina/{{this.pag}}">{{this.pag}}</a></li>
+            {{/each}}
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Siguiente</a>
+            </li>
+        </ul>
+    </nav>    
+</div>

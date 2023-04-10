@@ -1,0 +1,39 @@
+<div class="container table">
+    <h3 class="text-center">Modificar oferta</h3>
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin/ofertas/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <form action="/admin/ofertas/modificar" method="post">
+                <input type="hidden" name="id"  value="{{oferta.id_oferta}}">
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="titulo" value="{{oferta.titulo}}">
+                </div>
+            </div>
+            <div class=" mb-3 row">
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" name="cuerpo"> {{oferta.cuerpo}}</textarea>
+                </div>
+            </div>
+            <div class=" mb-3 row">
+                <p>Cargar nueva oferta seleccionando el tipo para mostrar en pagina WEB</p>
+                <div class="my-2">
+                    <input type="radio" id="principal" name="tipo" value="principal" checked>
+                    <label for="principal">Principal</label>
+                </div>
+                <div class="my-2">
+                    <input type="radio" id="secundaria" name="tipo" value="secundaria">
+                    <label for="secundaria">Secundaria</label>
+                </div>
+                <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+            </div>
+        </form>
+        {{#if error}}
+        <p>{{message}}</p>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="container">
+    <p class="text-center"><h3>Ofertas</h3></p>
+    <div class="row">        
+    </div>
+    <div class="text-end">
+      
+        <a href="/admin/ofertas/agregar" type="button" class="btn btn-primary align-self-center"><i class="fa-solid fa-plus"></i> Oferta
+            </a>
+    </div>
+    <table class="table table-hover table-bordered shadow">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>                
+                <th scope="col">Cuerpo</th>               
+                <th scope="col">Tipo</th>
+                <th scope="col">Acciones (Editar/Borrar)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each ofertas}}
+            <tr>
+                <th scope="row">{{id_oferta}}</th>
+                <td>{{titulo}}</td>               
+                <td>{{cuerpo}}</td>   
+                <td>{{tipo}}</td>             
+                <td>
+                    <p class="text-end"><a class="btn btn-primary mx-2" href="/admin/ofertas/modificar/{{id_oferta}}">
+                            <i class="fa-solid fa-pencil"></i></a><a class="btn btn-danger"
+                            href="/admin/ofertas/eliminar/{{id_oferta}}">
+                            <i class="fa-solid fa-trash-can"></i></a></p>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>

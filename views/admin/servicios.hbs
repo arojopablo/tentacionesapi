@@ -1,0 +1,43 @@
+
+  <div class="container">
+    <p class="text-center"><h3>Servicios</h3></p>
+    <div class="row">
+        {{!-- <p class="text-end"> Hola {{usuario}} <a class="btn btn-danger" href="/admin/login/logout">Cerrar Sesion
+                <i class="fas fa-sign-out-alt"></i> </a></p> --}}
+    </div>
+    <div class="text-end">
+        {{!-- <a href="/admin/productos/insertProducto" type="button" class="btn btn-primary align-self-center">+
+            Agregar Nuevo Producto</a> --}}
+        <a href="/admin/servicios/agregar" type="button" class="btn btn-primary align-self-center"><i class="fa-solid fa-plus"></i> Servicio
+            </a>
+    </div>
+    <table class="table table-hover table-bordered shadow">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">#</th>                
+                <th scope="col">Servicio</th>               
+                <th scope="col">Titulo</th>
+                <th scope="col">Imagen</th> 
+                <th scope="col">Acciones (Editar/Borrar)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each servicios}}
+            <tr>
+                <th scope="row">{{id_servicio}}</th>                
+                <td>{{servicio}}</td>
+                <td>{{titulo}}</td>
+                 {{!-- Se ponen tres llaves para "codificar la etiqueta img" --}}
+                <td>{{{imagen}}}</td>
+                <td>
+                    <p class="text-end"><a class="btn btn-primary mx-2" href="/admin/servicios/modificar/{{id_servicio}}">
+                            <i class="fa-solid fa-pencil"></i></a><a class="btn btn-danger"
+                            href="/admin/servicios/eliminar/{{id_servicio}}">
+                            <i class="fa-solid fa-trash-can"></i></a></p>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>
+</h1>

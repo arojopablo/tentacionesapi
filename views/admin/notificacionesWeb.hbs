@@ -1,0 +1,35 @@
+{{#if root}}
+<div class="container table">
+    <h3 class="text-center">Gestionar Notificaciones - Ver notificaciones Web</h3>
+
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin/notificaciones/nuevaNotificacion">Home</a></li>
+                <li class="breadcrumb-item"><a href="/admin/notificaciones/notificacionesWeb">Ver Notificaciones WEB</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>        
+            <div class=" mb-3 row">
+                <div class=" mb-3 row">        
+                            {{#each notificacionesWeb}}
+                            <div class="col-sm-7 ms-5 alert alert-secondary col-sm-8 text-center shadow-sm rounded" role="alert">
+                                <p class="notificacion"><i class="fa-solid fa-check"></i> {{this.notificacion}}</p>                                    
+                            </div>    
+                            <div class="col-sm-2 mt-3"> <p class="text-start">
+                                <a class="btn btn-danger" href="/admin/notificaciones/eliminar/{{id_notificacion}}">
+                            <i class="fa-solid fa-trash-can"></i></a></p></div>                                                    
+                            {{/each}}        
+                    </div>
+            </div>
+    </div>
+</div>
+{{else}}
+<div class="container text-center">
+    <div class="row">
+        <p>Su usuario no tiene permisos para gestionar notificaciones</p>
+        <p>Pongase en contacto con el administrador....</p>
+    </div>
+</div>
+{{/if}}

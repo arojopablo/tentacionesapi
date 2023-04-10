@@ -1,0 +1,53 @@
+<div class="container table">
+    <div class="row my-3">
+            <h3 class="text-center my-2">Modificar Cliente</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin/clientes/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <form action="/admin/clientes/modificar" method="post">
+        <input type="hidden" name="id"  value="{{cliente.id_cliente}}">
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                 <label for="">Nombre</label>
+                  <input type="text" class="form-control"  name="nombre" value="{{cliente.nombre}}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                 <label for="">Aepllido</label>
+                  <input type="text" class="form-control"  name="apellido" value="{{cliente.apellido}}">
+                </div>
+            </div>   
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                 <label for="">Correo electronico</label>
+                  <input type="text" class="form-control"  name="mail" value="{{cliente.mail}}">
+                </div>
+            </div>   
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                 <label for="">Telefono</label>
+                  <input type="text" class="form-control"  name="telefono" value="{{cliente.telefono}}">
+                </div>
+            </div>      
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                 <label for="">Direccion</label>
+                  <input type="text" class="form-control"  name="direccion" value="{{cliente.direccion}}">
+                </div>
+            </div>        
+         
+          
+            <button type="submit" class="btn btn-primary my-3"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        </form>
+        {{#if error}}        
+        <div class="col-sm-8 alert alert-danger alert-dismissible fade show my-3" role="alert">
+            <strong>Error!</strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}        
+    </div>
+</div>

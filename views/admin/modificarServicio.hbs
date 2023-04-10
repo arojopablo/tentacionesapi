@@ -1,0 +1,42 @@
+<div class="container table">
+                <h3 class="text-center">Modificar Servicio</h3>
+
+    <div class="row">
+        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admin/servicios/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+</nav>
+        <form action="/admin/servicios/modificar" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id"  value="{{servicio.id_servicio}}">
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="servicio" value="{{servicio.servicio}}">  
+            </div>
+        </div>
+         <div class=" mb-3 row">
+            <div class="col-sm-10">
+               <textarea type ="text" class="form-control" name="titulo">{{servicio.titulo}}</textarea>
+            </div>
+        </div>       
+        <div class=" mb-3 row">
+                <div class="col-sm-10">
+                    <p>
+                        <label for="">Imagen <input type="file" name="imagen" id="imagen"></label>
+                    </p>                    
+                        <label for=""><input type="checkbox" name="img_delete" id="img_delete" value="1">Eliminar imagen
+                        actual? </label>
+                    <input type="hidden" name="img_original" value="{{servicio.img_id}}">                    
+                </div>
+            </div>
+         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        </form>        
+         {{#if error}}        
+        <div class="col-sm-8 alert alert-danger alert-dismissible fade show my-3" role="alert">
+            <strong>Error!</strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+    </div>
+</div>

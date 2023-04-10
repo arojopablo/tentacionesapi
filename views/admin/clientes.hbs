@@ -1,0 +1,48 @@
+<div class="container">
+    <p class="text-center">
+    <h3>Clientes</h3>
+    </p>
+    <div class="row">
+    </div>
+    <div class="text-end">
+        <a href="/admin/clientes/agregar" type="button" class="btn btn-primary align-self-center"><i class="fa-solid fa-plus"></i> Cliente</a>
+    </div>
+    <table class="table table-hover table-bordered table-hover shadow">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Mail</th>
+
+                <th scope="col">Acciones (Editar/Borrar)</th>
+            </tr>
+        </thead>
+        {{!-- {{#if root}} 
+        <p>soy root</p>
+        {{/if}} --}}
+        <tbody>
+            {{#each clientes}}
+            <tr>
+                <th scope="row">{{id_cliente}}</th>
+                <td>{{nombre}}</td>
+                <td>{{apellido}}</td>
+                <td>{{direccion}}</td>
+                <td>{{telefono}}</td>
+                <td>{{mail}}</td>
+                <td>
+                    <p class="text-end">
+                       {{#if ../root}} <a class="btn btn-primary mx-2" href="/admin/clientes/modificar/{{id_cliente}}"><i
+                                class="fa-solid fa-pencil"></i></a>
+                        {{/if}}        
+                        <a class="btn btn-danger" href="/admin/clientes/eliminar/{{id_cliente}}"> <i
+                                class="fa-solid fa-trash-can"></i></a>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>

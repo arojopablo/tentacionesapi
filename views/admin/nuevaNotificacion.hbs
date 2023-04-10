@@ -1,0 +1,57 @@
+{{#if root}}
+<div class="container table">
+    <h3 class="text-center">Gestionar Notificaciones - Nueva notificacion</h3>
+
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin/notificaciones/nuevaNotificacion">Home</a></li>
+                <li class="breadcrumb-item"><a href="/admin/notificaciones/notificacionesWeb">Ver Notificaciones WEB</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+        <form action="/admin/notificaciones/nuevaNotificacion" method="post">
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Notificacion" name="notificacion">
+                </div>
+            </div>
+            <div class=" mb-3 row">
+                <div class=" mb-3 row">
+                    <p> Seleccione Usuario...</p>
+                    <div class="col-sm-10">
+                        <select class="custom-select" id="inputGroupSelect04" name="id_usuario"
+                            aria-label="Example select with button addon">
+                            {{#each usuarios}}
+                            <option value={{id}} name={{id}}>{{usuario}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+
+        </form>
+        {{#if error}}
+        <div class="col-sm-8 alert alert-danger alert-dismissible fade show my-3" role="alert">
+            <strong>Error!</strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        {{#if exito}}
+        <div class="col-sm-8 alert alert-success alert-dismissible fade show my-3" role="alert">
+            <strong>Correcto!</strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+    </div>
+</div>
+{{else}}
+<div class="container text-center">
+    <div class="row">
+        <p>Su usuario no tiene permisos para gestionar notificaciones</p>
+        <p>Pongase en contacto con el administrador....</p>
+    </div>
+</div>
+{{/if}}

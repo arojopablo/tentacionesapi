@@ -1,0 +1,51 @@
+<div class="container-fluid bg-dark2 p-4 text-white mb-4">
+  <div class="container">
+     <div class="row">
+       <div class="col-sm-4">
+         Red Informatica Sistema de Administacion 
+       </div>
+       <div class="col-sm-4">
+         <i class="fa-solid fa-phone"></i> Soporte  266 4 372195 - <i class="fa-solid fa-envelope"></i> arojopablo@gmail.com
+       </div>
+       <div class="col-sm-4">
+        <a href="" class="linkLogin"><i class="iconoLogin fa-brands fa-facebook-square"></i></a> 
+         <a href="" class="linkLogin"><i class="iconoLogin fa-brands fa-instagram-square"></i></a> 
+         <i class="fa-solid fa-browser"></i> <i class="fa-solid fa-globe iconoLogin"></i> <a class="linkLogin" href="https://redinformaticasl.herokuapp.com/" target="_blank">  Sitio web para clientes</a>   
+       </div>
+     </div>
+    </div>
+  </div>
+</div>
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Iniciar Sesion</h5>
+            <form action="/admin/login" method="post">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="su nombre de usuario" name="usuario">
+                <label class = "p-1 my-1"  for="floatingInput">Usuario</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                <label class = "p-1 my-1" for="floatingPassword">contraseña</label>
+              </div>
+            
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Ingresar</button>
+              </div>
+              <hr class="my-4">
+               
+              <div class="d-grid">                
+              </div>
+            </form>
+            {{#if error}}
+           <p>Usuario y contraseña incorrectos</p>
+          {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
